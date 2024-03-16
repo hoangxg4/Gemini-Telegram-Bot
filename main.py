@@ -6,7 +6,14 @@ import re
 import telebot
 from telebot.async_telebot import AsyncTeleBot
 from telebot.types import  Message
+from dotenv import load_dotenv
 
+# Load variables from .env file
+load_dotenv()
+
+# Get the values from environment variables
+TG_TOKEN = os.getenv("TG_TOKEN")
+GOOGLE_GEMINI_KEY = os.getenv("GOOGLE_GEMINI_KEY")
 
 generation_config = {
     "temperature": 0.1,
@@ -164,7 +171,7 @@ async def async_generate_content(model, contents):
 async def main():
     # Init args
     parser = argparse.ArgumentParser()
-    parser.add_argument("tg_token", help="telegram token")
+    parser.add_argument("TG_TOKEN", help="telegram token")
     parser.add_argument("GOOGLE_GEMINI_KEY", help="Google Gemini API key")
     options = parser.parse_args()
     print("Arg parse done.")
