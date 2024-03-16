@@ -175,6 +175,8 @@ async def main():
     parser.add_argument("TG_TOKEN", help="telegram token")
     parser.add_argument("GOOGLE_GEMINI_KEY", help="Google Gemini API key")
     options = parser.parse_args()
+    tg_token = options.TG_TOKEN or TG_TOKEN
+    google_gemini_key = options.GOOGLE_GEMINI_KEY or GOOGLE_GEMINI_KEY
     print("Arg parse done.")
     gemini_player_dict = {}
 
